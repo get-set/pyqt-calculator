@@ -9,6 +9,10 @@ class CalculatorWindow(QMainWindow, Ui_Calculator):
 
     def __init__(self):
         super().__init__()
+
+        style = self.load_qss("./main_style.qss")
+        self.setStyleSheet(style)
+
         self.setupUi(self)
         self.show()
 
@@ -45,10 +49,10 @@ class CalculatorWindow(QMainWindow, Ui_Calculator):
     def digit_pressed(self):
         button = self.sender()
 
-        if (self.pushButton_add.isChecked() or
+        if ((self.pushButton_add.isChecked() or
                 self.pushButton_subtract.isChecked() or
                 self.pushButton_multiply.isChecked() or
-                self.pushButton_divide.isChecked() or
+                self.pushButton_divide.isChecked()) and
                 (not self.is_typing_second_num)):
             new_label = format(float(button.text()), '.15g')
             self.is_typing_second_num = True
@@ -117,3 +121,7 @@ class CalculatorWindow(QMainWindow, Ui_Calculator):
         self.pushButton_multiply.setChecked(False)
         self.pushButton_divide.setChecked(False)
         self.is_typing_second_num = False
+
+    def load_qss(self, qss_file):
+        with open(qss_file, 'r') as f:
+            return f.read()

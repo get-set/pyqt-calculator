@@ -1,0 +1,26 @@
+/* Digit buttons */
+QPushButton[type="digit"] {
+  border: 1px solid gray;
+}
+QPushButton[type="digit"]:pressed {
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #dadbde, stop: 1 #f6f7fa);
+}
+
+/* Unary buttons */
+QPushButton[type="unary"] {
+  background-color: rgb(215,215,215);
+  border: 1px solid gray;
+}
+QPushButton[type="unary"]:pressed {
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #bebebe, stop: 1 #d7d7d7);
+}
+
+/* Binary buttons */
+QPushButton[type="binary"] {
+  background-color: rgb(255,151,57);
+  color: white;
+  border: 1px solid gray;
+}
+QPushButton[type="binary"]:pressed {
+  background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #ff7832, stop: 1 #ff9739);
+}
